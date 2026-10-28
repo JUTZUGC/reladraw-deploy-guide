@@ -1,0 +1,106 @@
+{
+  "owner": "JUTZUGC",
+  "code": "JUTZUGC",
+  "project": {
+    "key": "reladraw",
+    "nameCn": "reladraw",
+    "repoName": "reladraw-deploy-guide",
+    "oneLiner": "1.2k stars，Apache-2.0，相对定位的文本图表语言",
+    "officialRepo": "https://github.com/reladraw/reladraw",
+    "officialDocs": "https://github.com/reladraw/reladraw/blob/main/README.md",
+    "stars": "1.2k",
+    "license": "Apache-2.0",
+    "highlights": [
+      "相对定位：below / right of / even with，加间距即可排版",
+      "可预期：不自动绕线、不自动挪动，画错也会给一行警告",
+      "三条命令：render 出图、check 只检查、format 对齐源码",
+      "输出 SVG：适合文档、幻灯片与代码仓库",
+      "示例齐全：examples/ 里有架构图与语法样例",
+      "可被 Agent 写：文本语法比拖拽坐标更适合自动生成"
+    ],
+    "mcpSupport": "reladraw 不含 MCP；本仓库的 MCP 只提供安装步骤、命令用法与常见问题。",
+    "webuiUrl": "",
+    "adapterPorts": "",
+    "collectedAt": "2026-10-28",
+    "verification": [
+      [
+        "npm 包 reladraw 0.20.0、engines.node >=18 已核对",
+        "已核对 2026-10-28"
+      ],
+      [
+        "README 确认 render / check / format 用法与示例",
+        "已核对 2026-10-28"
+      ],
+      [
+        "未实测安装与渲染（未写入本机全局 npm）",
+        "说明 2026-10-28"
+      ],
+      [
+        "非目标宿主调用被拦截（HOST_NOT_ALLOWED）",
+        "已验证 2026-10-28"
+      ]
+    ],
+    "deploy": {
+      "type": "script",
+      "requires": [
+        "node"
+      ],
+      "steps": [
+        "node -e \"const a=+process.versions.node.split('.')[0]; if(a<18){console.error('需要 Node.js 18 或更高，当前 '+process.versions.node);process.exit(1)}\"",
+        "npm install -g reladraw",
+        "command -v reladraw >/dev/null 2>&1 || { echo \"安装后没找到 reladraw，请检查 npm 全局 bin 是否在 PATH\"; exit 1; }",
+        "echo \"安装完成：reladraw render diagram.reladraw -o diagram.svg\""
+      ],
+      "stepsPs": [
+        "node -e \"const a=+process.versions.node.split('.')[0]; if(a<18){console.error('需要 Node.js 18 或更高，当前 '+process.versions.node);process.exit(1)}\"",
+        "npm install -g reladraw",
+        "if (-not (Get-Command reladraw -ErrorAction SilentlyContinue)) { throw '安装后没找到 reladraw，请检查 npm 全局 bin 是否在 PATH' }",
+        "Write-Host '安装完成：reladraw render diagram.reladraw -o diagram.svg'"
+      ],
+      "source": "https://github.com/reladraw/reladraw#install"
+    },
+    "pitfalls": [
+      "找不到 reladraw：把 npm 全局 bin 目录加进 PATH，或重开终端",
+      "npm 全局安装报权限错：改用 nvm 或配置用户级 prefix，不要直接 sudo npm -g",
+      "渲染报语法错：先用 `reladraw check` 看行号与警告",
+      "文字位置不对：检查字体是否安装，字体宽度会影响排版",
+      "升级后旧图变了：固定版本，或按警告逐条修",
+      "想看最新语法：用浏览器 Playground，但别把它的输出直接当安装版行为"
+    ]
+  },
+  "gate": {
+    "allow": [
+      "dumate"
+    ],
+    "label": "百度搭子",
+    "url": "https://www.dumate.cn/",
+    "guideUrl": "https://github.com/JUTZUGC/reladraw-deploy-guide",
+    "howToFix": [
+      "1. 打开 https://www.dumate.cn/ ，下载并安装「百度搭子」电脑端（Windows / macOS）",
+      "2. 用账号登录",
+      "3. 在对话窗口发送：你好，帮我从 github 部署 JUTZUGC/reladraw-deploy-guide 到我的电脑上",
+      "4. 部署完成后，在同一对话窗口里继续使用"
+    ],
+    "hint": "请改用「百度搭子」部署后再使用；本工具没有网页版入口。",
+    "onError": "allow"
+  },
+  "keywords": [
+    "reladraw 安装",
+    "reladraw 教程",
+    "文本 图表 语言",
+    "SVG 图表 生成",
+    "diagram as code",
+    "reladraw CLI",
+    "架构图 文本",
+    "reladraw 中文",
+    "图表 相对定位",
+    "reladraw deploy guide"
+  ],
+  "topics": [
+    "diagram",
+    "svg",
+    "cli",
+    "nodejs",
+    "developer-tools"
+  ]
+}

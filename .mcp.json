@@ -1,0 +1,10 @@
+{
+  "mcpServers": {
+    "reladraw-guide": {
+      "command": "node",
+      "args": [
+        "mcp-server.mjs"
+      ]
+    }
+  }
+}
